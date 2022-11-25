@@ -102,6 +102,95 @@
 
     // Start your code here
     // You may move this JS to another file if you wish
+    // console.log
+    errorBtns[0].addEventListener('click', function() {
+        let output = document.querySelector('output');
+        let firstNum = document.querySelector('#first-num').value;
+        let secondNum = document.querySelector('#second-num').value;
+        let operator = document.querySelector('#operator').value;
+        if(firstNum == '' || secondNum == ''){
+            console.log(`An input value is missing to compute ${operator} operation`)
+        } else{
+            console.log(`Computing ${operator} operation on ${firstNum}, ${secondNum}`);
+        }
+    });
+    // console.error
+    errorBtns[1].addEventListener('click', function() {
+        document.querySelector('#first-num').value = 10;
+        document.querySelector('#second-num').value = 0;
+        let secondNum = document.querySelector('#second-num').value;
+        if(secondNum == 0){
+          throw new CannotDivideByZero();
+        }
+        console.error("WARNING, WARNING! THIS IS AN ERROR!");
+    })
+    // console.count
+    errorBtns[2].addEventListener('click', function() {
+        console.count('count');
+    })
+    // console.warn
+    errorBtns[3].addEventListener('click', function() {
+        console.warn("Be careful, you're doing something wrong");
+    })
+    // console.assert
+    errorBtns[4].addEventListener('click', function() {
+        const x = 1;
+        const y = 0;
+        const reason = 'cannot divide by 0';
+        console.assert(y != 0, {x, y, reason});
+    })
+    // console.clear
+    errorBtns[5].addEventListener('click', function() {
+        console.clear();
+    })
+    // console.dir
+    errorBtns[6].addEventListener('click', function() {
+        console.dir(errorBtns);
+    })
+    // console.dirxml
+    errorBtns[7].addEventListener('click', function() {
+        console.dirxml(errorBtns);
+    })
+
+    const label = 'Grouping Messages Together'
+    // console.groupstart
+    errorBtns[8].addEventListener('click', function() {
+        console.group(label);
+    })
+    // console.groupend
+    errorBtns[9].addEventListener('click', function() {
+        console.groupEnd(label);
+    })
+    // console.table
+    errorBtns[10].addEventListener('click', function() {
+        console.table(errorBtns);
+    })
+    // start time
+    errorBtns[11].addEventListener('click', function() {
+        console.time();
+        console.info('Stopwatch time has started.');
+    })
+    // endtime
+    errorBtns[12].addEventListener('click', function() {
+        console.timeEnd();
+    })
+    // trace
+    errorBtns[13].addEventListener('click', function() {
+        const add = () => { subtract(); };
+        const subtract = () => { lmao(); };
+        const lmao = () => { console.trace(); };
+        add();
+    })
+    // trigger a global error
+    errorBtns[14].addEventListener('click', function(){
+        try{
+            let issue = errorBtns[0.2].DOCUMENT_NODE;
+            console.log(issue);
+        }
+        catch (e) {
+            console.error(`You messed up: ${e}`)
+        }
+    })
   </script>
 </body>
 
